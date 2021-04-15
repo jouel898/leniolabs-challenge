@@ -1,1 +1,7 @@
-<p>congress-list works!</p>
+<mat-nav-list>
+    <mat-list-item *ngFor="let member of members | async">
+        <a matLine [routerLink]="['/congressmember', member.id]">{{ member.id }}
+           
+        </a>
+    </mat-list-item>
+</mat-nav-list>

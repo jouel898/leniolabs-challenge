@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { CongressResponse, Members } from 'src/app/models/congress-response.model';
 import { CongressListService } from 'src/app/services/congress-list.service';
 
 @Component({
@@ -7,11 +9,12 @@ import { CongressListService } from 'src/app/services/congress-list.service';
   styleUrls: ['./congress-list.component.scss']
 })
 export class CongressListComponent implements OnInit {
-
-  constructor(private membersService: CongressListService) { }
+  members: Observable<Members[]>;
+  constructor(private congressService: CongressListService) { }
 
   ngOnInit(): void {
-    this.membersService.getAllMembers();
+    this.members = this.congressService.members;
+    this.congressService.getAllMembers();
   }
 
 }

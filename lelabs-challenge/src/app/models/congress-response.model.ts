@@ -12,7 +12,7 @@ class Results {
     members: Members[];
 }
 
-class Members {
+export class Members {
     id: string;
     title: string;
     short_title: number;
