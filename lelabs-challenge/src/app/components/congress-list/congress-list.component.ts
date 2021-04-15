@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CongressListService } from 'src/app/services/congress-list.service';
 
 @Component({
   selector: 'app-congress-list',
@@ -7,9 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CongressListComponent implements OnInit {
 
-  constructor() { }
+  constructor(private membersService: CongressListService) { }
 
   ngOnInit(): void {
+    this.membersService.getAllMembers();
   }
 
 }
