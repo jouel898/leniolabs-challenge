@@ -6,6 +6,7 @@ import { CongressListComponent } from './congress-list.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { HttpClientModule } from '@angular/common/http';
 import { CongressListService } from 'src/app/services/congress-list.service';
+import { FiltersComponent } from 'src/app/shared/filters/filters.component';
 
 const routes: Routes = [
   { path: '', component: CongressListComponent},
@@ -21,6 +22,6 @@ const routes: Routes = [
     FlexLayoutModule,
     HttpClientModule,
   ],
-  providers: [CongressListService]
+  providers: []
 })
 export class CongressListModule { }

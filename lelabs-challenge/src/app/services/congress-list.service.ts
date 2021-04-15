@@ -28,11 +28,11 @@ export class CongressListService {
     return this._members.asObservable();
   }
 
-  getAllMembers() {
+  getAllMembers(congress: string, chambers: string) {
     const headers = new HttpHeaders({'X-API-Key': 'k2GqBGrANBtOWkBcqdWytYIPXpv8XCpG2xInnAiP'});
     const baseUrl = 'https://api.propublica.org/congress/v1/'; 
 
-    return this.http.get<CongressResponse>(baseUrl + '80/senate/members.json', {headers: headers})
+    return this.http.get<CongressResponse>(baseUrl + congress + '/' + chambers + '/members.json', {headers: headers})
       .subscribe(data => {
         console.log(data);
         this.congressMembers.responseCongressMembers = data;

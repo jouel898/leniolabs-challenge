@@ -26,8 +26,9 @@ export class CongressListComponent implements OnInit {
 
   ngOnInit(): void {
     this.members = this.congressService.members;
-    this.congressService.getAllMembers();
+    this.congressService.getAllMembers('80', 'senate');
     this.members.subscribe(members => {
+      console.log('holis');
       this.dataSource.data = members;
     });
   }
