@@ -39,9 +39,10 @@ export class CongressListService {
         this._congressResponse.next(Object.assign({}, this.congressMembers).responseCongressMembers)
         this._members.next(Object.assign({}, this.congressMembers.responseCongressMembers.results[0]).members)
     }, error => {
-      console.log("Failed to fetch users")
+      console.log("Failed to fetch members")
     });
   }
+  
   //let headers = new HttpHeaders({'TRN-Api-Key': this.apiKey});
  //this.http.get(this.apiUrl, {headers: headers})
 }
