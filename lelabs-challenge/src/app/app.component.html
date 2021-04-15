@@ -1,7 +1,9 @@
 <mat-sidenav-container class="app-sidenav-container">
-  <mat-sidenav #sidenav class="app-sidenav mat-elevation-z10" opened="true" mode="side">
+  <mat-sidenav #sidenav class="app-sidenav mat-elevation-z10" [opened]="!smallScreen" [mode]="smallScreen ? 'over' : 'side'">
     <mat-toolbar color="primary">Filters</mat-toolbar>
-    <app-filters></app-filters>
+    <div class="">
+      <app-filters></app-filters>
+    </div>
     <mat-nav-list>
       <mat-list-item>
           <a matLine>
@@ -13,7 +15,7 @@
 
 
   <div class="app-sidenav-content">
-      <app-toolbar></app-toolbar>
+      <app-toolbar (toggleSidenav)="sidenav.toggle()"></app-toolbar>
       <div class="wrapper">
           <router-outlet></router-outlet>
       </div>

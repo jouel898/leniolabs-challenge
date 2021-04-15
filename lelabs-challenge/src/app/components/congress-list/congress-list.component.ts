@@ -28,7 +28,6 @@ export class CongressListComponent implements OnInit {
     this.members = this.congressService.members;
     this.congressService.getAllMembers('80', 'senate');
     this.members.subscribe(members => {
-      console.log('holis');
       this.dataSource.data = members;
     });
   }
