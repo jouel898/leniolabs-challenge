@@ -18,7 +18,7 @@ export class CongressListComponent implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
-  displayedColumns: string[] = ['id', 'title', 'date'];
+  displayedColumns: string[] = ['first_name', 'title', 'last_name', 'party', 'gender'];
   dataSource: MatTableDataSource<Members>;
   constructor(private congressService: CongressListService) { 
     this.dataSource = new MatTableDataSource<Members>(this.membersList);
