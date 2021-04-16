@@ -5,7 +5,16 @@
         <input matInput (keyup)="applyFilter($event)" placeholder="Filter" #input>
       </mat-form-field>
     <table mat-table [dataSource]="dataSource" matSort>
-  
+
+      <ng-container matColumnDef="view_member">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Title Name </th>
+        <td mat-cell *matCellDef="let member"> 
+          <button mat-button (click)="goToMember(member.id);">
+            <mat-icon >search</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+
       <ng-container matColumnDef="first_name">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> Title Name </th>
         <td mat-cell *matCellDef="let member"> {{member.first_name}} </td>

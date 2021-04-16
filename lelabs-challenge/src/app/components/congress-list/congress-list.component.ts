@@ -18,7 +18,7 @@ export class CongressListComponent implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
-  displayedColumns: string[] = ['first_name', 'title', 'last_name', 'party', 'gender'];
+  displayedColumns: string[] = ['view_member','first_name', 'title', 'last_name', 'party', 'gender'];
   dataSource: MatTableDataSource<Members>;
   constructor(private congressService: CongressListService) { 
     this.dataSource = new MatTableDataSource<Members>(this.membersList);
@@ -41,6 +41,10 @@ export class CongressListComponent implements OnInit {
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
+
+  goToMember(id: string) {
+    console.log(id);
   }
 
 }
