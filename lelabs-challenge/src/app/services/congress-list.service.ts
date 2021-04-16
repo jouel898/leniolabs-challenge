@@ -13,6 +13,8 @@ export class CongressListService {
   private congressMembers: { 
     responseCongressMembers:  CongressResponse
   }
+  public defaultCongress: string = '80';
+  public defaultChamber: string = 'senate';
 
   constructor(private http: HttpClient) { 
     this.congressMembers = { responseCongressMembers: new CongressResponse };

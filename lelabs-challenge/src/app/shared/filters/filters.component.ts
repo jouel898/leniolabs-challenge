@@ -15,15 +15,15 @@ export class FiltersComponent implements OnInit {
   minCongress: number;
   maxCongress: number;
   chamber: string;
-  congress: string;
+  congress: string = 'senate';
   constructor(private congressService: CongressListService) {
   }
 
   ngOnInit(): void {
     this.minCongress = this.minSenate;
     this.maxCongress = this.maxSenate;
-    this.congress = '83';
-    this.chamber = 'senate'
+    this.congress = this.congressService.defaultCongress;
+    this.chamber = this.congressService.defaultChamber;
   }
 
   submitFilters() {
