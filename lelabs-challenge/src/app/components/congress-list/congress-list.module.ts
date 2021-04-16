@@ -5,22 +5,22 @@ import { RouterModule, Routes } from '@angular/router';
 import { CongressListComponent } from './congress-list.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { HttpClientModule } from '@angular/common/http';
-import { CongressListService } from 'src/app/services/congress-list.service';
-import { FiltersComponent } from 'src/app/shared/filters/filters.component';
+import { MembersCrudComponent } from './members-crud/members-crud.component';
 
 const routes: Routes = [
   { path: '', component: CongressListComponent},
+  { path: ':id', component: MembersCrudComponent},
   { path: '**', redirectTo: '' }
 ];
 
 @NgModule({
-  declarations: [CongressListComponent],
+  declarations: [CongressListComponent, MembersCrudComponent],
   imports: [
     CommonModule,
     MaterialModule,
     RouterModule.forChild(routes),
     FlexLayoutModule,
-    HttpClientModule,
+    HttpClientModule
   ],
   providers: []
 })
