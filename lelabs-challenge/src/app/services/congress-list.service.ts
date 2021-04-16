@@ -8,7 +8,6 @@ import { CongressResponse, Members } from '../models/congress-response.model';
   providedIn: 'root'
 })
 export class CongressListService {
-  private _congressResponse: BehaviorSubject<CongressResponse>;
   private _members: BehaviorSubject<Members[]>;
   private congressMembers: { 
     responseCongressMembers:  CongressResponse
@@ -18,12 +17,7 @@ export class CongressListService {
 
   constructor(private http: HttpClient) { 
     this.congressMembers = { responseCongressMembers: new CongressResponse };
-    this._congressResponse = new BehaviorSubject<CongressResponse>(new CongressResponse);
     this._members = new BehaviorSubject<Members[]>([]);
-  }
-
-  get congressResponse(): Observable<CongressResponse> {
-    return this._congressResponse.asObservable();
   }
 
   get members(): Observable<Members[]> {
@@ -36,9 +30,7 @@ export class CongressListService {
 
     return this.http.get<CongressResponse>(baseUrl + congress + '/' + chambers + '/members.json', {headers: headers})
       .subscribe(data => {
-        console.log(data);
         this.congressMembers.responseCongressMembers = data;
-        this._congressResponse.next(Object.assign({}, this.congressMembers).responseCongressMembers)
         this._members.next(Object.assign({}, this.congressMembers.responseCongressMembers.results[0]).members)
     }, error => {
       console.log("Failed to fetch members")
