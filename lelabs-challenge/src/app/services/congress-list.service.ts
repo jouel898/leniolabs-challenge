@@ -36,7 +36,9 @@ export class CongressListService {
       console.log("Failed to fetch members")
     });
   }
+
+  getMemberById(id: string){
+    return this.congressMembers.responseCongressMembers.results[0].members.find(x => x.id == id);
+  }
   
-  //let headers = new HttpHeaders({'TRN-Api-Key': this.apiKey});
- //this.http.get(this.apiUrl, {headers: headers})
 }

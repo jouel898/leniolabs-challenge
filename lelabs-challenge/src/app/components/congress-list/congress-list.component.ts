@@ -43,8 +43,4 @@ export class CongressListComponent implements OnInit {
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
-  goToMember(id: string) {
-    console.log(id);
-  }
-
 }
