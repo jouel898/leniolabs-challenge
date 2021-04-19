@@ -25,8 +25,6 @@ export class MembersCrudComponent implements OnInit {
       this.memberFields = this.congressListService.getMemberById(this.id);
       this.fieldNames = Object.keys(this.memberFields);
       this.fieldValues = Object.values(this.memberFields);
-      console.log(this.memberFields);
     })
   }
-
 }
